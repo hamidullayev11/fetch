@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+      <div class="row">
+        <div id="div" class= "d-flex  flex-wrap justify-content-center gap-3">
+
+        </div >
+      </div>
+  </div>
+
+  
+    
+    
+    <script>
+
+    fetch('https://getty.uz/get-posts')
+    .then(response => response.json())
+    .then(response => {
+       
+        for(obj of response.data) {
+                    console.log(obj);
+                    var div1 = document.createElement('div');
+                    var img = document.createElement('img');
+                    var h2 = document.createElement('h2');
+                    var p = document.createElement('p');
+                    var div = document.createElement('div');
+                    var button = document.createElement('button');
+                    var card = document.querySelector('#div')
+
+                    div1.appendChild(div);
+                    div.appendChild(img);
+                    div.appendChild(h2);
+                    div.appendChild(p);
+                    card.appendChild(div1)
+                    div1.classList.add('card')
+                    div1.style.width='18rem'
+                    img.classList.add('card-img-top')
+                    h2.classList.add('card-title')
+                    p.classList.add('card-text')
+                    div.classList.add('card-body')
+                    button.classList.add('btn-primary')
+                    button.classList.add('btn')
+                    
+                    div.appendChild(button).innerText='Read more'
+                    img.src  = 'https://getty.uz/'+obj.image
+                    h2.innerText =obj.title
+                   p.innerText= obj.info
+                  
+                   
+               }
+     
+    })
+
+
+
+</script>
+
+
+
+</body>
+</html>
